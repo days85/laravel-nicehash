@@ -1,0 +1,43 @@
+{
+    "name": "days85/laravel-nicehash",
+    "description": "Laravel Package to interact with Nicehash",
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.4.0",
+        "ergebnis/http-method": "^2.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "orchestra/testbench-dusk": "^6",
+        "ext-xdebug": "*"
+    },
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "Days85\\Nicehash\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Days85\\Nicehash\\Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nuno Dias",
+            "email": "nuno.jaco@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Days85\\Nicehash\\ServiceProvider"
+            ],
+            "aliases": {
+                "Nicehash": "Days85\\Nicehash\\Facades\\Nicehash"
+            }
+        }
+    }
+}
