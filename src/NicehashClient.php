@@ -236,7 +236,7 @@ class NicehashClient
         string $endpoint = '',
         array $params = []
     ): NicehashResponse {
-        $time = Carbon::now('UTC')->getTimestamp();
+        $time = Carbon::now('UTC')->getPreciseTimestamp(3);
         $nonce = uniqid();
         $signature = $this->getApiKey() . "\x00" . $time . "\x00" . $nonce . "\x00" . "\x00" .
             $this->getOrganizationId() . "\x00" . "\x00" . $method . "\x00" . $endpoint;
