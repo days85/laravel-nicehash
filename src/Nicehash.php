@@ -2,6 +2,8 @@
 
 namespace Days85\Nicehash;
 
+use Days85\Nicehash\Models\Requests\MiningRigsParams;
+use Days85\Nicehash\Models\Requests\MiningRigsPayoutsParams;
 use Ergebnis\Http\Method;
 
 class Nicehash
@@ -110,10 +112,32 @@ class Nicehash
      * When path is empty, rigs from root group are returned.
      * Rigs can be sorted according to sort parameter.
      *
+     * @param MiningRigsParams|null $params
      * @return mixed
      */
-    public function rigs(): mixed
+    public function miningRigs(MiningRigsParams $params = null): mixed
     {
-        return $this->request(Method::GET, NicehashEndpoints::RIGS);
+        $paramsArray = [];
+        if ($params) {
+            $paramsArray = $params->toArray();
+        }
+
+        return $this->request(Method::GET, NicehashEndpoints::MINING_RIGS, $paramsArray);
+    }
+
+    /**
+     * $paramsArray
+     *
+     * @param MiningRigsPayoutsParams|null $params
+     * @return mixed
+     */
+    public function miningRigsPayouts(MiningRigsPayoutsParams $params = null): mixed
+    {
+        $paramsArray = [];
+        if ($params) {
+            $paramsArray = $params->toArray();
+        }
+
+        return $this->request(Method::GET, NicehashEndpoints::MINING_RIGS_PAYOUTS, $paramsArray);
     }
 }

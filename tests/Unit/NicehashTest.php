@@ -36,7 +36,7 @@ class NicehashTest extends TestCase
         $nicehash->setVerify(true);
         $this->assertInstanceOf(NicehashClient::class, $nicehash->getClient());
 
-        $response = $nicehash->rigs();
+        $response = $nicehash->miningRigs();
 
         $this->assertEquals($this->getRigsResponse(), $response);
     }
