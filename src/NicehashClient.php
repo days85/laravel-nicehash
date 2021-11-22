@@ -239,7 +239,7 @@ class NicehashClient
         $time = Carbon::now('UTC')->getPreciseTimestamp(3);
         $nonce = uniqid();
         $signature = $this->getApiKey() . "\x00" . $time . "\x00" . $nonce . "\x00" . "\x00" .
-            $this->getOrganizationId() . "\x00" . "\x00" . $method . "\x00" . $endpoint;
+            $this->getOrganizationId() . "\x00" . "\x00" . $method . "\x00" . $endpoint . "\x00";
         $signHash = hash_hmac('sha256', $signature, $this->getApiSecret());
         $xAuth = $this->getApiKey() . ':' . $signHash;
 
